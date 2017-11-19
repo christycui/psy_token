@@ -1,0 +1,10 @@
+%section.balance.container
+  .row
+    .col-sm-10.col-sm-offset-1
+      .h2 Welcome Offer
+      %div{'style' => 'padding-top: 30px'}
+        .h4 We give a selected group of new users 1 PSY token as a welcome offer. To redeem the offer, you have to attempt to sell the welcome token in 7 days. Simply click the sell button to submit an offer.
+        = form_for @user, :url => url_for(:controller => 'users', :method => 'put', :action => 'redeemed', :slug => current_user.slug) do |f|
+          %fieldset.actions.control-group.col-sm-offset-2
+            .controls
+              %input(type="submit" value="Agree and Redeem" class="btn btn-primary")
