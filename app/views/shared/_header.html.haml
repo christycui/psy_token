@@ -3,8 +3,8 @@
     = link_to "PSY Wallet", root_path
   - if logged_in?
     %ul.col-md-5.clearfix
-      %li= link_to "Buy", root_path
-      %li= link_to "Sell", root_path
+      %li= link_to "Buy", buy_path
+      %li= link_to "Sell", sell_path
       %li= link_to "Redeem", redeem_path(:slug => current_user.slug)
     #user_links.pull-right
       %ul

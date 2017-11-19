@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119190526) do
+ActiveRecord::Schema.define(version: 20171119222124) do
+
+  create_table "asks", force: :cascade do |t|
+    t.integer "user_id"
+    t.decimal "ask_price", precision: 10, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "auction_complete", default: false
+    t.boolean "executed", default: false
+  end
+
+  create_table "bids", force: :cascade do |t|
+    t.integer "user_id"
+    t.decimal "bid_price", precision: 10, scale: 2
+    t.boolean "auction_complete", default: false
+    t.boolean "executed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"

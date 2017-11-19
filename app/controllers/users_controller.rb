@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user, only: [:redeem]
+  before_action :require_user, only: [:redeem, :redeemed, :balance]
   def new
     redirect_to home_path if logged_in?
     @user = User.new

@@ -4,3 +4,30 @@
       .h2 
         Current balance: 
         = current_user.balance
+%section.balance.container
+  .row
+    .col-sm-10.col-sm-offset-1
+      - if logged_in? && current_user.asks != []
+        %h2 Ask History
+        %table.table
+          %thead
+            %tr
+              %th{'scope' => 'col'}Date Created
+              %th{'scope' => 'col'}Ask Price
+              %th{'scope' => 'col'}Auction Completion
+              %th{'scope' => 'col'}Executed
+          %tbody
+            - current_user.asks.each do |ask|
+              = render 'asks/ask', ask: ask
+      - if logged_in? && current_user.bids != []
+        %h2 Bid History
+        %table.table
+          %thead
+            %tr
+              %th{'scope' => 'col'}Date Created
+              %th{'scope' => 'col'}Bid Price
+              %th{'scope' => 'col'}Auction Completion
+              %th{'scope' => 'col'}Executed
+          %tbody
+            - current_user.bids.each do |bid|
+              = render 'bids/bid', bid: bid
