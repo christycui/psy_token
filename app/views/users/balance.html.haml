@@ -4,11 +4,34 @@
       .h2 
         Current balance: 
         = current_user.balance
+  %br
+  %br
+  .row
+    .col-sm-10.col-sm-offset-1
+      .h4 Past Auction Results
+      %table.table
+        %thead
+          %tr
+            %th{'scope' => 'col'}Auction Date
+            %th{'scope' => 'col'}Final Price Per Token
+        %tbody
+          %tr
+            %td Oct 29, 2017
+            %td Executed @ $ 2.01
+          %tr
+            %td Nov 5, 2017
+            %td Executed @ $ 1.89
+          %tr
+            %td Nov 12, 2017
+            %td Executed @ $ 1.98
+          %tr
+            %td Nov 19, 2017
+            %td Executed @ $ 2.12
 %section.balance.container
   .row
     .col-sm-10.col-sm-offset-1
       - if logged_in? && current_user.asks != []
-        %h2 Ask History
+        %h2 Your Ask History
         %table.table
           %thead
             %tr
@@ -20,7 +43,7 @@
             - current_user.asks.each do |ask|
               = render 'asks/ask', ask: ask
       - if logged_in? && current_user.bids != []
-        %h2 Bid History
+        %h2 Your Bid History
         %table.table
           %thead
             %tr

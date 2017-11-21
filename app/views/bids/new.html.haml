@@ -1,8 +1,10 @@
 %section.balance.container
   .row
     .col-sm-10.col-sm-offset-1
-      .h2 How much are you willing to sell your token for?
-      .p A second-price auction will be held to match buyers with the lowest bid, but only the second-lowest bidder will win. This is to incentivize truthful answers and a fair competition.
+      .h2 How much do you want to sell your token for?
+      .p - See below for historical final prices.
+      .p - To promote a healthy marketplace, we only accept bids smaller or equal to $10 at this point.
+      .p - A second-price auction will be held, meaning only the second-lowest bidder will win. You can't win by lower-bidding.
       %div{'style' => 'padding-top: 30px'}
         = bootstrap_form_for @bid, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-3", html: {id: "payment-form"} do |f|
           %fieldset
@@ -10,3 +12,26 @@
           %fieldset.actions.control-group.col-sm-offset-2
             .controls
               %input(type="submit" value="Submit" class="btn btn-primary")
+  %br
+  %br
+  .row
+    .col-sm-10.col-sm-offset-1
+      .h4 Past Auction Results
+      %table.table
+        %thead
+          %tr
+            %th{'scope' => 'col'}Auction Date
+            %th{'scope' => 'col'}Final Price Per Token
+        %tbody
+          %tr
+            %td Oct 29, 2017
+            %td Executed @ $ 2.01
+          %tr
+            %td Nov 5, 2017
+            %td Executed @ $ 1.89
+          %tr
+            %td Nov 12, 2017
+            %td Executed @ $ 1.98
+          %tr
+            %td Nov 19, 2017
+            %td Executed @ $ 2.12

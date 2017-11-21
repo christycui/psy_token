@@ -2,7 +2,10 @@ class BidsController < ApplicationController
   before_action :require_user
 
   def new
-    if current_user.asks != []
+    if current_user.balance < 1
+      flash[:danger] = "You don't have any tokens to sell yet. Go to Redeem tab to get 1 token."
+      redirect_to root_path
+    elsif current_user.asks != []
       flash[:danger] = "You can either be a buyer or a seller in one auction. Please wait for the next auction."
       redirect_to root_path
     elsif current_user.bids != []
